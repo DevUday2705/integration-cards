@@ -1,0 +1,51 @@
+{
+	"sap.package": {
+		"id": "ns.contentPackage",
+		"packageVersion": {
+			"version": "2.9.0",
+			"upgradeNotification": "all"
+		},
+		"i18n": "i18n/i18n.properties",
+		"icon": "sap-icon://accept",
+		"title": "My Card Package",
+		"subTitle": "",
+		"shortTitle": "",
+		"info": "",
+		"description": "",
+		"tags": {
+			"keywords": [
+			]
+        },
+        "vendor": {
+            "id": "",
+            "name": "",
+            "url": ""
+        },
+		"products": "",
+		"categories": "",
+		"scope": "external",
+		"license": {
+			"text": "",
+			"url": ""
+		},
+		"homepage": {
+			"text": "",
+			"url": ""
+		},
+		"support": {
+			"url": ""
+		},
+		"contents": [
+			"__BUILD__"
+		],
+		"documentation": {
+			"url": ""
+		},
+		"consumption": [],
+		"dependencies": {
+			"products": [],
+			"services": []
+		},
+		"destinations": []
+	}
+}

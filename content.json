@@ -1,0 +1,31 @@
+{
+  "myComponentCard": {
+    "type": "card",
+    "src": {
+      "from": "./cards/myComponentCard",
+      "path": "./",
+      "manifest": "manifest.json"
+    }
+  },
+  "myCardRole": {
+    "type": "role",
+    "src": {
+      "from": "./",
+      "content": "role.json"
+    }
+  },
+  "myCardSpace": {
+    "type": "space",
+    "src": {
+      "from": "./",
+      "content": "space.json"
+    }
+  },
+  "myCardWorkpage": {
+    "type": "workpage",
+    "src": {
+      "from": "./",
+      "content": "workpage.json"
+    }
+  }
+}

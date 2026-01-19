@@ -1,0 +1,16 @@
+{
+  "_version": "3.1.0",
+  "identification": {
+    "id": "ns.contentPackage.space",
+    "title": "R.A.P.I.D.",
+    "entityType": "space"
+  },
+  "payload": {
+    "contentNodes": [
+      {
+        "type": "workpage",
+        "id": "ns.contentPackage.workpage"
+      }
+    ]
+  }
+}

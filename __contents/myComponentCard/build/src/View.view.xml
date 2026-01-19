@@ -1,0 +1,742 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    controllerName="my.component.sample.cardContentControls.Main"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+>
+    <VBox class="taskManagementCardWrappper">
+     <html:div class="blackBg"> </html:div>
+        <!-- Header with Refresh Button -->
+        <html:div class="taskManagementCard"> 
+     
+
+        <!-- Refresh Status Message -->
+        <html:div class="refreshStatusMessage">
+            <html:span
+                class="statusText"
+                data-id="statusText"
+            >
+                Showing results for today - Data refreshed: --:--:--
+            </html:span>
+        </html:div>
+
+        <!-- Task Cards Container -->
+        <html:div class="taskContainer">
+            <!-- Recommender Card -->
+            <html:div
+                class="taskCard recommender"
+                data-role="RCM"
+            >
+                <html:div>
+                    <html:div class="taskRole">As</html:div>
+                    <html:div class="recommenderIconWrapper">
+              <html:img src="https://res.cloudinary.com/di6unrpjw/image/upload/v1763318282/recommender_bx59j9.png" class="roleIcon" alt="Recommender Icon"/>
+                    </html:div>
+                    <html:div class="taskTitle">Recommender</html:div>
+                    <html:div
+                        class="taskCount"
+                        id="recommenderCount"
+                        data-id="recommenderCount"
+                    >
+                        0
+                    </html:div>
+              <html:div>Tasks Pending </html:div>
+
+                </html:div>
+                   <html:div class="stackedBarChartContainer">
+                    <html:div class="stackedBarWrapper">
+                        <html:div class="stackedBar">
+                            <html:div class="stackedBarSegment fundSegment" style="width: 40%;" title="Fund: 10">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                            <html:div class="stackedBarSegment contentSegment" style="width: 30%;" title="Content: 8">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                            <html:div class="stackedBarSegment expenseSegment" style="width: 30%;" title="Direct FI: 7">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                        </html:div>
+                    </html:div>
+                    <html:div class="stackedBarLegend">
+                        <html:div class="legendItem">
+                            <html:div class="legendColor fundColor"></html:div>
+                            <html:span class="legendLabel">0-10</html:span>
+                        </html:div>
+                        <html:div class="legendItem">
+                            <html:div class="legendColor contentColor"></html:div>
+                            <html:span class="legendLabel">10-20</html:span>
+                        </html:div>
+                        <html:div class="legendItem">
+                            <html:div class="legendColor expenseColor"></html:div>
+                            <html:span class="legendLabel">20+</html:span>
+                        </html:div>
+                    </html:div>
+                <html:div class="agingHeader">Aging (In Days)</html:div>
+                </html:div>
+                <html:div class="taskDetailsColumn">
+                    <!-- Fund Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Fund"
+                        >
+                            Non Content - Funds
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar"
+                                data-id="recommenderFund-bar"
+                                style="width: 50%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="recommenderFund"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+
+                    <!-- Content Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Content"
+                        >
+                            Content Greenlighting
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar"
+                                data-id="recommenderContent-bar"
+                                style="width: 15%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="recommenderContent"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+
+                    <!-- Specified Expense Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Specified Expense"
+                        >
+                            Direct FI Transactions
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar"
+                                data-id="recommenderExpense-bar"
+                                style="width: 10%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="recommenderExpense"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+
+                    <!-- Non PO Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Non PO"
+                        >
+                            Non PO - Invoices
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar"
+                                data-id="recommenderNonPO-bar"
+                                style="width: 25%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="recommenderNonPO"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+                </html:div>
+            </html:div>
+
+            <!-- Agree-er Card -->
+            <html:div
+                class="taskCard agreer"
+                data-role="AGR"
+            >
+                <html:div>
+                    <html:div class="taskRole">As</html:div>
+                    <html:div class="agreerIconWrapper">
+                        <html:img src="https://res.cloudinary.com/di6unrpjw/image/upload/v1763318282/agreer_zzhaea.png" class="roleIcon" alt="Agreer Icon"/>
+                    </html:div>
+                    <html:div class="taskTitle">Agree-er</html:div>
+                    <html:div
+                        class="taskCount"
+                        id="agreerCount"
+                        data-id="agreerCount"
+                    >
+                        0
+                    </html:div>
+              <html:div>Tasks Pending </html:div>
+
+
+                </html:div>
+                   <html:div class="stackedBarChartContainer">
+                    <html:div class="stackedBarWrapper">
+                        <html:div class="stackedBar">
+                            <html:div class="stackedBarSegment fundSegment" style="width: 40%;" title="Fund: 10">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                            <html:div class="stackedBarSegment contentSegment" style="width: 30%;" title="Content: 8">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                            <html:div class="stackedBarSegment expenseSegment" style="width: 30%;" title="Direct FI: 7">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                        </html:div>
+                    </html:div>
+                    <html:div class="stackedBarLegend">
+                        <html:div class="legendItem">
+                            <html:div class="legendColor fundColor"></html:div>
+                            <html:span class="legendLabel">0-10</html:span>
+                        </html:div>
+                        <html:div class="legendItem">
+                            <html:div class="legendColor contentColor"></html:div>
+                            <html:span class="legendLabel">10-20</html:span>
+                        </html:div>
+                        <html:div class="legendItem">
+                            <html:div class="legendColor expenseColor"></html:div>
+                            <html:span class="legendLabel">20+</html:span>
+                        </html:div>
+                                   
+                    </html:div>
+                <html:div class="agingHeader">Aging (In Days)</html:div>
+                </html:div>
+                  
+                <html:div class="taskDetailsColumn">
+                    <!-- Fund Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Fund"
+                        >
+                            Non Content - Funds
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar agreerBar"
+                                data-id="agreerFund-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="agreerFund"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+
+                    <!-- Content Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Content"
+                        >
+                            Content Greenlighting
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar agreerBar"
+                                data-id="agreerContent-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="agreerContent"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+
+                    <!-- Specified Expense Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Specified Expense"
+                        >
+                            Direct FI Transactions
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar agreerBar"
+                                data-id="agreerExpense-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="agreerExpense"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+
+                    <!-- Non PO Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Non PO"
+                        >
+                            Non PO - Invoices
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar agreerBar"
+                                data-id="agreerNonPO-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="agreerNonPO"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+                </html:div>
+            </html:div>
+
+            <!-- Performer Card -->
+            <html:div
+                class="taskCard performer"
+                data-role="PERF"
+            >
+                <html:div>
+                    <html:div class="taskRole">As</html:div>
+                    <html:div class="performerIconWrapper">
+                        <html:img src="https://res.cloudinary.com/di6unrpjw/image/upload/v1763318283/performer_mlzjgi.png" class="roleIcon" alt="Performer Icon"/>
+                    </html:div>
+                    <html:div class="taskTitle">Performer</html:div>
+                    <html:div
+                        class="taskCount"
+                        id="performerCount"
+                        data-id="performerCount"
+                    >
+                        0
+                    </html:div>
+              <html:div>Tasks Pending </html:div>
+
+
+                </html:div>
+                   <html:div class="stackedBarChartContainer">
+                    <html:div class="stackedBarWrapper">
+                        <html:div class="stackedBar">
+                            <html:div class="stackedBarSegment fundSegment" style="width: 40%;" title="Fund: 10">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                            <html:div class="stackedBarSegment contentSegment" style="width: 30%;" title="Content: 8">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                            <html:div class="stackedBarSegment expenseSegment" style="width: 30%;" title="Direct FI: 7">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                        </html:div>
+                    </html:div>
+                    <html:div class="stackedBarLegend">
+                        <html:div class="legendItem">
+                            <html:div class="legendColor fundColor"></html:div>
+                            <html:span class="legendLabel">0-10</html:span>
+                        </html:div>
+                        <html:div class="legendItem">
+                            <html:div class="legendColor contentColor"></html:div>
+                            <html:span class="legendLabel">10-20</html:span>
+                        </html:div>
+                        <html:div class="legendItem">
+                            <html:div class="legendColor expenseColor"></html:div>
+                            <html:span class="legendLabel">20+</html:span>
+                        </html:div>
+                    </html:div>
+                <html:div class="agingHeader">Aging (In Days)</html:div>
+                </html:div>
+
+                <html:div class="taskDetailsColumn">
+                    <!-- Fund Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Fund"
+                        >
+                            Non Content - Funds
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar performerBar"
+                                data-id="performerFund-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="performerFund"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+
+                    <!-- Content Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Content"
+                        >
+                            Content Greenlighting
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar performerBar"
+                                data-id="performerContent-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="performerContent"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+
+                    <!-- Specified Expense Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Specified Expense"
+                        >
+                            Direct FI Transactions
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar performerBar"
+                                data-id="performerExpense-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="performerExpense"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+
+                    <!-- Non PO Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Non PO"
+                        >
+                            Non PO - Invoices
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar performerBar"
+                                data-id="performerNonPO-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="performerNonPO"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+                </html:div>
+            </html:div>
+
+            <!-- Input Provider Card -->
+           <html:div
+                class="taskCard inputProvider"
+                data-role="INP"
+            >
+                <html:div>
+                    <html:div class="taskRole">As</html:div>
+                    <html:div class="inputProviderIconWrapper">
+                        <html:img src="https://res.cloudinary.com/di6unrpjw/image/upload/v1763318282/input-provider_t6ql5n.png" class="roleIcon" alt="Input Provider Icon"/>
+                    </html:div>
+                    <html:div class="taskTitle">Input Provider</html:div>
+                    <html:div
+                        class="taskCount"
+                        id="inputProviderCount"
+                        data-id="inputProviderCount"
+                    >
+                        0
+                    </html:div>
+              <html:div>Tasks Pending </html:div>
+
+
+                </html:div>
+                   <html:div class="stackedBarChartContainer">
+                    <html:div class="stackedBarWrapper">
+                        <html:div class="stackedBar">
+                            <html:div class="stackedBarSegment fundSegment" style="width: 40%;" title="0-10 days: 10">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                            <html:div class="stackedBarSegment contentSegment" style="width: 30%;" title="10-20 days: 8">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                            <html:div class="stackedBarSegment expenseSegment" style="width: 30%;" title="20+ days: 7">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                        </html:div>
+                    </html:div>
+                    <html:div class="stackedBarLegend">
+                        <html:div class="legendItem">
+                            <html:div class="legendColor fundColor"></html:div>
+                            <html:span class="legendLabel">0-10</html:span>
+                        </html:div>
+                        <html:div class="legendItem">
+                            <html:div class="legendColor contentColor"></html:div>
+                            <html:span class="legendLabel">10-20</html:span>
+                        </html:div>
+                        <html:div class="legendItem">
+                            <html:div class="legendColor expenseColor"></html:div>
+                            <html:span class="legendLabel">20+</html:span>
+                        </html:div>
+                    </html:div>
+                <html:div class="agingHeader">Aging (In Days)</html:div>
+                </html:div>
+
+                <html:div class="taskDetailsColumn">
+                    <!-- Mandatory Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Mandatory"
+                        >
+                            Mandatory
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar inputProviderBar"
+                                data-id="inputProviderMandatory-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            id="inputProviderMandatory"
+                            data-id="inputProviderMandatory"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+
+                    <!-- Non Mandatory Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Non Mandatory"
+                        >
+                            Non Mandatory
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar inputProviderBar"
+                                data-id="inputProviderNonMandatory-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            id="inputProviderNonMandatory"
+                            data-id="inputProviderNonMandatory"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+                </html:div>
+            </html:div>
+
+            <!-- Decider Card -->
+            <html:div
+                class="taskCard decider"
+                data-role="DCD"
+            >
+                <html:div>
+                    <html:div class="taskRole">As</html:div>
+                    <html:div class="deciderIconWrapper">
+                        <html:img src="https://res.cloudinary.com/di6unrpjw/image/upload/v1763318282/decider_embp72.png" class="roleIcon" alt="Input Decider Icon"/>
+                    </html:div>
+                    <html:div class="taskTitle">Decider</html:div>
+                    <html:div
+                        class="taskCount"
+                        id="deciderCount"
+                        data-id="deciderCount"
+                    >
+                        0
+                    </html:div>
+              <html:div>Tasks Pending </html:div>
+
+
+                </html:div>
+                   <html:div class="stackedBarChartContainer">
+                    <html:div class="stackedBarWrapper">
+                        <html:div class="stackedBar">
+                            <html:div class="stackedBarSegment fundSegment" style="width: 40%;" title="Fund: 10">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                            <html:div class="stackedBarSegment contentSegment" style="width: 30%;" title="Content: 8">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                            <html:div class="stackedBarSegment expenseSegment" style="width: 30%;" title="Direct FI: 7">
+                                <html:span class="segmentValue">0</html:span>
+                            </html:div>
+                        </html:div>
+                    </html:div>
+                    <html:div class="stackedBarLegend">
+                        <html:div class="legendItem">
+                            <html:div class="legendColor fundColor"></html:div>
+                            <html:span class="legendLabel">0-10</html:span>
+                        </html:div>
+                        <html:div class="legendItem">
+                            <html:div class="legendColor contentColor"></html:div>
+                            <html:span class="legendLabel">10-20</html:span>
+                        </html:div>
+                        <html:div class="legendItem">
+                            <html:div class="legendColor expenseColor"></html:div>
+                            <html:span class="legendLabel">20+</html:span>
+                        </html:div>
+                    </html:div>
+                <html:div class="agingHeader">Aging (In Days)</html:div>
+                </html:div>
+
+                <html:div class="taskDetailsColumn">
+                    <!-- Fund Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Fund"
+                        >
+                            Non Content - Funds
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar deciderBar"
+                                data-id="deciderFund-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="deciderFund"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+
+                    <!-- Content Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Content"
+                        >
+                            Content Greenlighting
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar deciderBar"
+                                data-id="deciderContent-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="deciderContent"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+
+                    <!-- Specified Expense Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Specified Expense"
+                        >
+                            Direct FI Transactions
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar deciderBar"
+                                data-id="deciderExpense-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="deciderExpense"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+
+                    <!-- Non PO Progress Bar -->
+                    <html:div class="taskDetailItemBar">
+                        <html:div
+                            class="taskDetailLabel"
+                            data-type="Non PO"
+                        >
+                            Non PO - Invoices
+                        </html:div>
+                        <html:div class="progressBarContainer">
+                            <html:div
+                                class="progressBar deciderBar"
+                                data-id="deciderNonPO-bar"
+                                style="width: 0%"
+                            />
+                        </html:div>
+                        <html:div
+                            class="taskDetailValue"
+                            data-id="deciderNonPO"
+                        >
+                            0
+                        </html:div>
+                    </html:div>
+                </html:div>
+                
+            </html:div>
+            
+        </html:div>
+           <html:div class="taskHeaderContainer">
+            <html:div
+                class="taskHeader taskHeaderButton"
+                data-action="allTasks"
+            >
+                All Tasks
+            </html:div>
+            <html:div
+                class="refreshButton"
+                data-action="refresh"
+                title="Refresh Tasks"
+            >
+                ↻
+            </html:div>
+        </html:div>
+        </html:div>
+    </VBox>
+</mvc:View>

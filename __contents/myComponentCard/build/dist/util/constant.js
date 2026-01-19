@@ -1,0 +1,2 @@
+sap.ui.define([],function(){"use strict";return{recommender:{ibnParams:{role:"recommender",taskType:"approval"}},agreer:{ibnParams:{role:"agreer",taskType:"agreement"}},performer:{ibnParams:{role:"performer",taskType:"execution"}},inputProvider:{ibnParams:{role:"inputProvider",taskType:"input"}},decider:{ibnParams:{role:"decider",taskType:"decision"}}}});
+//# sourceMappingURL=constant.js.map

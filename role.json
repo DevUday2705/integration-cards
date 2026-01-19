@@ -1,0 +1,20 @@
+{
+  "_version": "3.2.0",
+  "identification": {
+    "id": "ns.contentPackage.role1",
+    "title": "ContentPackageRole",
+    "entityType": "role"
+  },
+  "payload": {
+    "spaces": [
+      {
+        "id": "ns.contentPackage.space"
+      }
+    ],
+    "apps": [
+      {
+        "id": "my.component.sample.cardContentControls.app"
+      }
+    ]
+  }
+}

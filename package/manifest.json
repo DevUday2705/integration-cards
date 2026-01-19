@@ -1,0 +1,286 @@
+{
+	"sap.package": {
+		"id": "ns.contentPackage",
+		"packageVersion": {
+			"version": "2.9.0",
+			"upgradeNotification": "all"
+		},
+		"i18n": "i18n/i18n.properties",
+		"icon": "sap-icon://accept",
+		"title": "My Card Package",
+		"subTitle": "",
+		"shortTitle": "",
+		"info": "",
+		"description": "",
+		"tags": {
+			"keywords": []
+		},
+		"vendor": {
+			"id": "",
+			"name": "",
+			"url": ""
+		},
+		"products": "",
+		"categories": "",
+		"scope": "external",
+		"license": {
+			"text": "",
+			"url": ""
+		},
+		"homepage": {
+			"text": "",
+			"url": ""
+		},
+		"support": {
+			"url": ""
+		},
+		"contents": [
+			{
+				"manifest": {
+					"_version": "1.27.0",
+					"_generator": "cpkg-project-template",
+					"sap.artifact": {
+						"id": "my.component.sample.cardContentControls",
+						"type": "card",
+						"title": "Sample of a Component Content with Form",
+						"subTitle": "Sample of a Component Content with Form",
+						"shortTitle": "A short title for this Card",
+						"info": "Additional information about this Card",
+						"description": "A long description for this Card",
+						"tags": {
+							"keywords": [
+								"Component",
+								"Card",
+								"Sample"
+							]
+						},
+						"artifactVersion": {
+							"version": "1.0.0"
+						}
+					}
+				},
+				"baseURL": "artifacts/myComponentCard"
+			}
+		],
+		"documentation": {
+			"url": ""
+		},
+		"consumption": [],
+		"dependencies": {
+			"products": [],
+			"services": []
+		},
+		"destinations": [],
+		"cdmEntities": [
+			{
+				"_version": "3.2.0",
+				"identification": {
+					"id": "my.component.sample.cardContentControls.app",
+					"title": "Sample of a Component Content with Form",
+					"entityType": "businessapp",
+					"description": "{{description}}"
+				},
+				"payload": {
+					"visualizations": {
+						"my.component.sample.cardContentControls.viz": {
+							"vizType": "sap.card",
+							"vizConfig": {
+								"_version": "1.15.0",
+								"sap.app": {
+									"id": "my.component.sample.cardContentControls",
+									"type": "card",
+									"title": "Sample of a Component Content with Form",
+									"subTitle": "Sample of a Component Content with Form",
+									"applicationVersion": {
+										"version": "1.0.0"
+									},
+									"shortTitle": "A short title for this Card",
+									"info": "Additional information about this Card",
+									"description": "A long description for this Card",
+									"tags": {
+										"keywords": [
+											"Component",
+											"Card",
+											"Sample"
+										]
+									}
+								},
+								"sap.ui": {
+									"technology": "UI5",
+									"icons": {
+										"icon": "sap-icon://bus-public-transport"
+									}
+								},
+								"sap.ui5": {
+									"rootView": {
+										"viewName": "my.component.sample.cardContentControls.View",
+										"type": "XML",
+										"async": true,
+										"id": "app"
+									},
+									"resources": {
+										"css": [
+											{
+												"uri": "styles/custom.css"
+											}
+										]
+									},
+									"dependencies": {
+										"minUI5Version": "1.38",
+										"libs": {
+											"sap.m": {},
+											"sap.ui.core": {}
+										}
+									},
+									"config": {
+										"sample": {
+											"stretch": true,
+											"files": [
+												"Card.controller.js"
+											]
+										}
+									}
+								},
+								"sap.card": {
+									"type": "Component",
+									"designtime": "dt/configuration",
+									"configuration": {
+										"destinations": {
+											"SPNI_COFA_APPROVALPROCESS1": {
+												"name": "SPNI_COFA_APPROVALPROCESS1"
+											}
+										},
+										"parameters": {
+											"cofa": {
+												"value": "managed-create",
+												"type": "string"
+											}
+										}
+									}
+								}
+							},
+							"vizResources": {
+								"artifactId": "my.component.sample.cardContentControls"
+							}
+						}
+					}
+				},
+				"texts": [
+					{
+						"locale": "",
+						"textDictionary": {
+							"description": "Business App Description"
+						}
+					}
+				]
+			},
+			{
+				"_version": "3.2.0",
+				"identification": {
+					"id": "ns.contentPackage.role1",
+					"title": "ContentPackageRole",
+					"entityType": "role"
+				},
+				"payload": {
+					"spaces": [
+						{
+							"id": "ns.contentPackage.space"
+						}
+					],
+					"apps": [
+						{
+							"id": "my.component.sample.cardContentControls.app"
+						}
+					]
+				},
+				"texts": [
+					{
+						"locale": "",
+						"textDictionary": {}
+					},
+					{
+						"locale": "en",
+						"textDictionary": {}
+					}
+				]
+			},
+			{
+				"_version": "3.1.0",
+				"identification": {
+					"id": "ns.contentPackage.space",
+					"title": "R.A.P.I.D.",
+					"entityType": "space"
+				},
+				"payload": {
+					"contentNodes": [
+						{
+							"type": "workpage",
+							"id": "ns.contentPackage.workpage"
+						}
+					]
+				},
+				"texts": [
+					{
+						"locale": "",
+						"textDictionary": {}
+					},
+					{
+						"locale": "en",
+						"textDictionary": {}
+					}
+				]
+			},
+			{
+				"_version": "3.2.0",
+				"identification": {
+					"id": "ns.contentPackage.workpage",
+					"entityType": "workpage"
+				},
+				"payload": {
+					"workpageConfig": {
+						"title": "My Inbox"
+					},
+					"rows": [
+						{
+							"id": "row-1",
+							"rowConfig": {},
+							"columns": [
+								{
+									"id": "col-1",
+									"columnConfig": {
+										"width": "100%"
+									},
+									"cells": [
+										{
+											"id": "cell-1",
+											"cellConfig": {},
+											"widgets": [
+												{
+													"id": "widget-1",
+													"viz": {
+														"appId": "my.component.sample.cardContentControls.app",
+														"vizId": "my.component.sample.cardContentControls.viz"
+													}
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				"texts": [
+					{
+						"locale": "",
+						"textDictionary": {}
+					},
+					{
+						"locale": "en",
+						"textDictionary": {}
+					}
+				]
+			}
+		]
+	}
+}

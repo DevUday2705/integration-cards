@@ -1,0 +1,508 @@
+/* Sony Integration Card - Custom Styles */
+
+.taskManagementCard {
+  padding: 15px;
+  background-color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+.roleIcon{
+  width: auto;
+  height: 50px;
+  margin-left: 36px;
+
+}
+
+.taskHeaderContainer{
+  position: relative;
+  z-index: 2;
+}
+
+.blackBg{
+  height: 250px;
+  width: 100%;
+  background-color: #333a43;
+  position: absolute;
+  left: 0;
+  top: -15px;
+  z-index: 1;
+
+}
+.taskHeaderContainer{
+  margin-top: 10px;
+}
+.recommenderIconWrapper {
+    padding-top: 20px;
+    background-color: #db4f3c;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.agreerIconWrapper {
+    padding-top: 20px;
+    background-color: #ad2492;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.performerIconWrapper {
+    padding-top: 20px;
+    background-color: #8305de;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.inputProviderIconWrapper {
+    padding-top: 20px;
+    background-color: #5551e6;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.deciderIconWrapper {
+    padding-top: 20px;
+    background-color: #007093;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+/* Header Styling */
+.taskHeader {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  width: 20%;
+  color: white;
+  background: #9867CA;
+  background: linear-gradient(90deg, rgba(152, 103, 202, 1) 0%, rgba(212, 95, 148, 1) 50%);
+  padding: 8px 30px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  letter-spacing: 0.5px;
+}
+/* Refresh Status Message */
+.refreshStatusMessage {
+  text-align: center;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  background-color: #f0f8ff;
+  border: 1px solid #d0e8f2;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.statusText {
+  color: #555;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Task Container */
+.taskContainer {
+  display: flex;
+  z-index: 2;
+  position: relative;
+  gap: 16px;
+  justify-content: center;
+  /* Changed from space-around */
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+/* Task Card Base Styling */
+.taskCard {
+  flex: 0 0 auto;
+  /* Changed from flex: 1 to prevent stretching */
+  min-width: 140px;
+  max-width: 220px;
+  /* Added max-width constraint */
+  width: 220px;
+  /* Added fixed width */
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: none;
+  /* Initially hidden until user roles are determined */
+}
+
+.refreshStatusMessage{
+  position: relative;
+  z-index: 2;
+}
+
+.taskCard:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.taskCard:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.taskCard:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Top section with colored background */
+.taskCard>div:first-child {
+  padding: 12px 0px;
+  text-align: center;
+  border-bottom: 2px solid #FE7901;
+  
+}
+
+
+/* Task Role Label */
+.taskRole {
+  font-size: 14px;
+  font-style: italic;
+  color: #3f3f3f;
+
+  letter-spacing: 0.5px;
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+
+/* Task Title */
+.taskTitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Task Count */
+.taskCount {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0066cc;
+  margin-bottom: 3px;
+  line-height: 1;
+}
+
+/* Task Label */
+.taskLabel {
+  font-size: 10px;
+  color: #999;
+  margin-bottom: 0;
+}
+
+/* Task Details Container - vertical centered layout */
+.taskDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Task Details Column - for progress bar layout */
+.taskDetailsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+}
+
+.taskD {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Task Detail Item - vertical stacked layout */
+.taskDetailItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+}
+
+/* Task Detail Item Bar - for progress bar layout */
+.taskDetailItemBar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Progress Bar Container */
+.progressBarContainer {
+  width: 90%;
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Progress Bar Fill */
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, #0066cc, #0052a3);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  box-shadow: 0 1px 2px rgba(0, 102, 204, 0.3);
+}
+
+/* Role-specific Progress Bar Colors */
+.recommenderBar {
+  background: linear-gradient(90deg, #0066cc, #0052a3) !important;
+  box-shadow: 0 1px 2px rgba(0, 102, 204, 0.3) !important;
+}
+
+.agreerBar {
+  background: linear-gradient(90deg, #0c982a, #086620) !important;
+  box-shadow: 0 1px 2px rgba(12, 152, 42, 0.3) !important;
+}
+
+.performerBar {
+  background: linear-gradient(90deg, #4000ff, #2e00b8) !important;
+  box-shadow: 0 1px 2px rgba(64, 0, 255, 0.3) !important;
+}
+
+.deciderBar {
+  background: linear-gradient(90deg, #dea785, #c98b6f) !important;
+  box-shadow: 0 1px 2px rgba(222, 167, 133, 0.3) !important;
+}
+.inputProviderBar {
+  background: linear-gradient(90deg, #5551e6, #4540c5) !important;
+  box-shadow: 0 1px 2px rgba(85, 81, 230, 0.3) !important;
+}
+
+.taskManagementCardWrappper{
+  position: relative;
+  
+}
+/* Task Detail Item Bar - for progress bar layout */
+.taskDetailItemBar {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+}
+
+/* Task Detail Label */
+.taskDetailLabel {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.taskDetailLabel:hover {
+  text-decoration: underline;
+  color: #0066cc;
+}
+
+/* Task Detail Value */
+.taskDetailValue {
+  font-weight: 700;
+  color: #0066cc;
+  font-size: 12px;
+}
+
+/* For progress bar layout: value displayed at end of bar */
+.taskDetailItemBar .taskDetailValue {
+  font-size: 11px;
+  align-self: flex-end;
+  margin-top: -15px;
+  margin-right: 2px;
+  background: white;
+  padding: 0 2px;
+  z-index: 10;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .taskCard {
+    flex: 0 1 calc(33.333% - 11px);
+  }
+}
+
+@media (max-width: 768px) {
+  .taskCard {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .taskCard {
+    flex: 1;
+  }
+
+  .taskHeader {
+    font-size: 14px;
+    padding: 10px 30px;
+  }
+
+  .taskManagementCard {
+    padding: 0px;
+    z-index: 2;
+    position: relative;
+  }
+}
+
+
+
+.blankCard {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 20px;
+  min-height: 150px;
+  background: white;
+  max-width: 220px;
+}
+
+.refreshButton {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0066cc;
+  color: white;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.refreshButton:hover {
+  background-color: #0052a3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.refreshButton:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Stacked Bar Chart Styles */
+.stackedBarChartContainer {
+  padding: 12px 16px 8px 16px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #eee;
+}
+
+.stackedBarWrapper {
+  margin-bottom: 8px;
+}
+
+.stackedBar {
+  display: flex;
+  height: 16px;
+  width: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stackedBarSegment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.stackedBarSegment:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+.segmentValue {
+  color: white;
+  font-size: 9px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.fundSegment {
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+}
+
+.contentSegment {
+  background: linear-gradient(135deg, #50c878, #3da85f);
+}
+
+.expenseSegment {
+  background: linear-gradient(135deg, #f5a623, #e09617);
+}
+
+.stackedBarLegend {
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: #666;
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.fundColor {
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+}
+
+.contentColor {
+  background: linear-gradient(135deg, #50c878, #3da85f);
+}
+
+.expenseColor {
+  background: linear-gradient(135deg, #f5a623, #e09617);
+}
+
+.legendLabel {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.agingHeader{
+  font-size: 12px;
+  margin-top: 10px;
+  margin-left: 2px;
+  text-align: left;
+  font-weight: 400;
+  font-style: italic;
+  color: #747474;
+}

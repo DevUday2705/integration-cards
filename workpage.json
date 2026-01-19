@@ -1,0 +1,41 @@
+{
+  "_version": "3.2.0",
+  "identification": {
+    "id": "ns.contentPackage.workpage",
+    "entityType": "workpage"
+  },
+  "payload": {
+    "workpageConfig": {
+      "title": "My Inbox"
+    },
+    "rows": [
+      {
+        "id": "row-1",
+        "rowConfig": {},
+        "columns": [
+          {
+            "id": "col-1",
+            "columnConfig": {
+              "width": "100%"
+            },
+            "cells": [
+              {
+                "id": "cell-1",
+                "cellConfig": {},
+                "widgets": [
+                  {
+                    "id": "widget-1",
+                    "viz": {
+                      "appId": "my.component.sample.cardContentControls.app",
+                      "vizId": "my.component.sample.cardContentControls.viz"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

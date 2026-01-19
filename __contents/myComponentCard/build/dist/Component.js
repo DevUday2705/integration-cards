@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/UIComponent"],function(t){"use strict";var e=t.extend("my.component.sample.cardContentControls",{metadata:{manifest:"json"},onCardReady:function(t){this.card=t;var e=this;setTimeout(function(){var o=e.getRootControl()&&e.getRootControl().getController();if(o&&o.setTaskData){var a=o.getView().getModel("Card");if(a){o.setTaskData(t,a)}}},100)}});return e});
+//# sourceMappingURL=Component.js.map

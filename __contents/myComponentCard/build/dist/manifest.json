@@ -1,0 +1,70 @@
+{
+  "_version": "1.15.0",
+  "sap.app": {
+    "id": "my.component.sample.cardContentControls",
+    "type": "card",
+    "title": "Sample of a Component Content with Form",
+    "subTitle": "Sample of a Component Content with Form",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "shortTitle": "A short title for this Card",
+    "info": "Additional information about this Card",
+    "description": "A long description for this Card",
+    "tags": {
+      "keywords": ["Component", "Card", "Sample"]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://bus-public-transport"
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "my.component.sample.cardContentControls.View",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "styles/custom.css"
+        }
+      ]
+    },
+    "dependencies": {
+      "minUI5Version": "1.38",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "config": {
+      "sample": {
+        "stretch": true,
+        "files": ["Card.controller.js"]
+      }
+    }
+  },
+  "sap.card": {
+    "type": "Component",
+    "designtime": "dt/configuration",
+ 
+    "configuration": {
+      "destinations": {
+        "SPNI_COFA_APPROVALPROCESS1": {
+          "name": "SPNI_COFA_APPROVALPROCESS1"
+        }
+      },
+      "parameters": {
+        "cofa": {
+          "value": "managed-create",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
