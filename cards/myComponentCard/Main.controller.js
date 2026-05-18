@@ -381,7 +381,7 @@ sap.ui.define(
 						});
 				} else {
 					// For other roles, use the existing Request API
-					var filter = "pendingWithEmail eq '" + userEmail + "' and (stage eq '" + role + "' or stageId eq '" + role + "')";
+					var filter = "contains(pendingWithEmail,'" + userEmail + "') and (stage eq '" + role + "' or stageId eq '" + role + "')";
 								
 					var url = "/odata/v2/cofa/Request?$filter=" + encodeURIComponent(filter);
 

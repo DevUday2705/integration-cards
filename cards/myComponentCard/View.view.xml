@@ -7,6 +7,7 @@
     controllerName="my.component.sample.cardContentControls.Main"
     xmlns:html="http://www.w3.org/1999/xhtml"
 >
+// Latest version : 18th May 2026
     <VBox class="taskManagementCardWrappper">
      <html:div class="blackBg"> </html:div>
         <!-- Header with Refresh Button -->

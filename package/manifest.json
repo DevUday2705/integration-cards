@@ -2,7 +2,7 @@
 	"sap.package": {
 		"id": "ns.contentPackage",
 		"packageVersion": {
-			"version": "2.9.0",
+			"version": "3.0.0",
 			"upgradeNotification": "all"
 		},
 		"i18n": "i18n/i18n.properties",
@@ -85,7 +85,7 @@
 						"my.component.sample.cardContentControls.viz": {
 							"vizType": "sap.card",
 							"vizConfig": {
-								"_version": "1.15.0",
+								"_version": "1.20.0",
 								"sap.app": {
 									"id": "my.component.sample.cardContentControls",
 									"type": "card",
