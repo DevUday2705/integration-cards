@@ -75,7 +75,7 @@
                             <html:span class="legendLabel">20+</html:span>
                         </html:div>
                     </html:div>
-                <html:div class="agingHeader">Aging (In Days)</html:div>
+                <html:div class="AgeingHeader">Ageing (In Days)</html:div>
                 </html:div>
                 <html:div class="taskDetailsColumn">
                     <!-- Fund Progress Bar -->
@@ -223,7 +223,7 @@
                         </html:div>
                                    
                     </html:div>
-                <html:div class="agingHeader">Aging (In Days)</html:div>
+                <html:div class="AgeingHeader">Ageing (In Days)</html:div>
                 </html:div>
                   
                 <html:div class="taskDetailsColumn">
@@ -371,7 +371,7 @@
                             <html:span class="legendLabel">20+</html:span>
                         </html:div>
                     </html:div>
-                <html:div class="agingHeader">Aging (In Days)</html:div>
+                <html:div class="AgeingHeader">Ageing (In Days)</html:div>
                 </html:div>
 
                 <html:div class="taskDetailsColumn">
@@ -519,7 +519,7 @@
                             <html:span class="legendLabel">20+</html:span>
                         </html:div>
                     </html:div>
-                <html:div class="agingHeader">Aging (In Days)</html:div>
+                <html:div class="AgeingHeader">Ageing (In Days)</html:div>
                 </html:div>
 
                 <html:div class="taskDetailsColumn">
@@ -623,7 +623,7 @@
                             <html:span class="legendLabel">20+</html:span>
                         </html:div>
                     </html:div>
-                <html:div class="agingHeader">Aging (In Days)</html:div>
+                <html:div class="AgeingHeader">Ageing (In Days)</html:div>
                 </html:div>
 
                 <html:div class="taskDetailsColumn">
@@ -723,6 +723,8 @@
             </html:div>
             
         </html:div>
+
+
            <html:div class="taskHeaderContainer">
             <html:div
                 class="taskHeader taskHeaderButton"

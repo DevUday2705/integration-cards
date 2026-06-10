@@ -1,7 +1,7 @@
 {
   "_version": "3.2.0",
   "identification": {
-    "id": "ns.contentPackage.workpage",
+    "id": "ns.contentPackage1.workpage",
     "entityType": "workpage"
   },
   "payload": {

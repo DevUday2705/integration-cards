@@ -1,8 +1,8 @@
 {
 	"sap.package": {
-		"id": "ns.contentPackage",
+		"id": "ns.contentPackage1",
 		"packageVersion": {
-			"version": "3.0.0", 
+			"version": "3.1.1", 
 			"upgradeNotification": "all"
 		},
 		"i18n": "i18n/i18n.properties",

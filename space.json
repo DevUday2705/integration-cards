@@ -1,15 +1,15 @@
 {
   "_version": "3.1.0",
   "identification": {
-    "id": "ns.contentPackage.space",
-    "title": "R.A.P.I.D.",
+    "id": "ns.contentPackage1.space",
+    "title": "COFA Approvals",
     "entityType": "space"
   },
   "payload": {
     "contentNodes": [
       {
         "type": "workpage",
-        "id": "ns.contentPackage.workpage"
+        "id": "ns.contentPackage1.workpage"
       }
     ]
   }

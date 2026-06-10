@@ -1,8 +1,8 @@
 {
 	"sap.package": {
-		"id": "ns.contentPackage",
+		"id": "ns.contentPackage1",
 		"packageVersion": {
-			"version": "3.0.0",
+			"version": "3.1.1",
 			"upgradeNotification": "all"
 		},
 		"i18n": "i18n/i18n.properties",
@@ -55,7 +55,7 @@
 							]
 						},
 						"artifactVersion": {
-							"version": "1.0.0"
+							"version": "1.0.1"
 						}
 					}
 				},
@@ -85,14 +85,14 @@
 						"my.component.sample.cardContentControls.viz": {
 							"vizType": "sap.card",
 							"vizConfig": {
-								"_version": "1.20.0",
+								"_version": "1.2.1",
 								"sap.app": {
 									"id": "my.component.sample.cardContentControls",
 									"type": "card",
 									"title": "Sample of a Component Content with Form",
 									"subTitle": "Sample of a Component Content with Form",
 									"applicationVersion": {
-										"version": "1.0.0"
+										"version": "1.0.1"
 									},
 									"shortTitle": "A short title for this Card",
 									"info": "Additional information about this Card",
@@ -177,14 +177,14 @@
 			{
 				"_version": "3.2.0",
 				"identification": {
-					"id": "ns.contentPackage.role1",
+					"id": "ns.contentPackage1.role1",
 					"title": "ContentPackageRole",
 					"entityType": "role"
 				},
 				"payload": {
 					"spaces": [
 						{
-							"id": "ns.contentPackage.space"
+							"id": "ns.contentPackage1.space"
 						}
 					],
 					"apps": [
@@ -207,15 +207,15 @@
 			{
 				"_version": "3.1.0",
 				"identification": {
-					"id": "ns.contentPackage.space",
-					"title": "R.A.P.I.D.",
+					"id": "ns.contentPackage1.space",
+					"title": "COFA Approvals",
 					"entityType": "space"
 				},
 				"payload": {
 					"contentNodes": [
 						{
 							"type": "workpage",
-							"id": "ns.contentPackage.workpage"
+							"id": "ns.contentPackage1.workpage"
 						}
 					]
 				},
@@ -233,7 +233,7 @@
 			{
 				"_version": "3.2.0",
 				"identification": {
-					"id": "ns.contentPackage.workpage",
+					"id": "ns.contentPackage1.workpage",
 					"entityType": "workpage"
 				},
 				"payload": {

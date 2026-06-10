@@ -65,7 +65,7 @@ sap.ui.define(
 
 			_updateStatusMessage: function (refreshDate) {
 				var that = this;
-				
+
 				// Format date: November 11th, 2025
 				var options = { year: 'numeric', month: 'long', day: 'numeric' };
 				var dateStr = refreshDate.toLocaleDateString('en-US', options);
@@ -77,22 +77,22 @@ sap.ui.define(
 				var timeStr = hours + ':' + minutes + ':' + seconds;
 
 				var statusText = 'Showing results for ' + dateStr + ' - Data refreshed: ' + timeStr;
-				
+
 				var statusElement = document.querySelector('[data-id="statusText"]');
 				if (statusElement) {
 					statusElement.textContent = statusText;
 					console.log("✓ Status message updated:", statusText);
 				} else {
 					console.warn("✗ Status element not found for update on first attempt - retrying...");
-					
+
 					// Retry with exponential backoff
 					var retryCount = 0;
 					var maxRetries = 5;
-					
+
 					var retryUpdate = function () {
 						retryCount++;
 						var retryElement = document.querySelector('[data-id="statusText"]');
-						
+
 						if (retryElement) {
 							retryElement.textContent = statusText;
 							console.log("✓ Status message updated (retry " + retryCount + "):", statusText);
@@ -103,7 +103,7 @@ sap.ui.define(
 							console.error("✗ Status element not found after " + maxRetries + " retries");
 						}
 					};
-					
+
 					setTimeout(retryUpdate, 300);
 				}
 			},
@@ -260,13 +260,13 @@ sap.ui.define(
 						// Check if user has this role (including partial matches for INP prefix)
 						for (var i = 0; i < userRoles.length; i++) {
 							var userRole = userRoles[i];
-							
+
 							// Exact match (RCM, AGR, PERF, DCD)
 							if (userRole === cardRole) {
 								shouldShow = true;
 								break;
 							}
-							
+
 							// Special case: if card role is INP (Input Provider), match any role starting with INP
 							if (cardRole === "INP" && userRole.indexOf("INP") === 0) {
 								shouldShow = true;
@@ -350,7 +350,6 @@ sap.ui.define(
 
 				// Check if this is an Input Provider role (starts with INP)
 				if (role.indexOf("INP") === 0) {
-					// For Input Provider, use InputRequest API
 					var filter = "requestedToEmail eq '" + userEmail + "' and status eq 'PENDING' and (isMandatory eq true or isMandatory eq false)";
 					var url = "/odata/v2/cofa/InputRequest?$filter=" + encodeURIComponent(filter) + "&$inlinecount=allpages";
 
@@ -372,7 +371,6 @@ sap.ui.define(
 							var results = (response.d && response.d.results) ? response.d.results : [];
 							var totalCount = (response.d && response.d.__count) ? parseInt(response.d.__count) : results.length;
 							console.log("Number of input requests for " + role + ":", totalCount);
-							// Return with totalCount from __count
 							return { role: role, data: results, totalCount: totalCount };
 						})
 						.catch(function (err) {
@@ -381,8 +379,9 @@ sap.ui.define(
 						});
 				} else {
 					// For other roles, use the existing Request API
-					var filter = "contains(pendingWithEmail,'" + userEmail + "') and (stage eq '" + role + "' or stageId eq '" + role + "')";
-								
+					var filter =
+						"substringof('" + userEmail + "', pendingWithEmail) " +
+						"and (stage eq '" + role + "' or stageId eq '" + role + "')";
 					var url = "/odata/v2/cofa/Request?$filter=" + encodeURIComponent(filter);
 
 					var requestConfig = {
@@ -412,7 +411,7 @@ sap.ui.define(
 			},
 
 			_processRoleData: function (role, data) {
-				
+
 				var that = this;
 				console.log("========================================");
 				console.log("Processing role:", role, "with", data.length, "requests");
@@ -428,11 +427,14 @@ sap.ui.define(
 				};
 
 				var elementPrefix = roleMap[role];
-				
+
 				// If no exact match, check for prefix matches
 				if (!elementPrefix) {
-					if (role.indexOf("INP") === 0) {
-						// Any role starting with INP maps to inputProvider
+					if (role === "INPFB") {
+						elementPrefix = "inputProviderFeedback";
+						console.log("Role 'INPFB' mapped to 'inputProviderFeedback'");
+					} else if (role.indexOf("INP") === 0 && role !== "INPFB") {
+						// Covers INP, INP1, INP2, INP4 etc. but NOT INPFB
 						elementPrefix = "inputProvider";
 						console.log("Role '" + role + "' matches INP prefix, mapping to 'inputProvider'");
 					} else {
@@ -453,7 +455,7 @@ sap.ui.define(
 
 				// Count by request type for progress bars
 				var typeCounts = {};
-				
+
 				// Count by aging for stacked bar
 				var aging0to10 = 0;
 				var aging10to20 = 0;
@@ -463,7 +465,7 @@ sap.ui.define(
 					var requestType = request.requestType || "Unknown";
 					console.log("Request type found:", requestType);
 					typeCounts[requestType] = (typeCounts[requestType] || 0) + 1;
-					
+
 					// Count by aging for stacked bar
 					var aging = request.aging || 0;
 					if (aging <= 10) {
@@ -484,11 +486,11 @@ sap.ui.define(
 				// Update detail counts based on role
 				if (elementPrefix === "inputProvider") {
 					console.log("Input Provider count updated to:", totalCount);
-					
+
 					// Count mandatory vs non-mandatory from the data
 					var mandatoryCount = 0;
 					var nonMandatoryCount = 0;
-					
+
 					actualData.forEach(function (request) {
 						if (request.isMandatory === true) {
 							mandatoryCount++;
@@ -496,9 +498,9 @@ sap.ui.define(
 							nonMandatoryCount++;
 						}
 					});
-					
+
 					console.log("Input Provider - Mandatory:", mandatoryCount, "Non-Mandatory:", nonMandatoryCount);
-					
+
 					this._updateProgressBar(elementPrefix + "Mandatory", mandatoryCount, totalCount > 0 ? totalCount : 1);
 					this._updateProgressBar(elementPrefix + "NonMandatory", nonMandatoryCount, totalCount > 0 ? totalCount : 1);
 					console.log("========================================");
@@ -513,10 +515,10 @@ sap.ui.define(
 
 				// Count content-related types (Content, ContentGate1, ContentGate2, etc.)
 				contentCountBar = 0;
-				Object.keys(typeCounts).forEach(function(requestType) {
-				    if (requestType === "Content" || requestType.indexOf("ContentGate") === 0) {
-				        contentCountBar += typeCounts[requestType];
-				    }
+				Object.keys(typeCounts).forEach(function (requestType) {
+					if (requestType === "Content" || requestType.indexOf("ContentGate") === 0) {
+						contentCountBar += typeCounts[requestType];
+					}
 				});
 
 				console.log("Updating " + role + " with progress bars - Fund:", fundCountBar, "Content:", contentCountBar, "Expense:", expenseCountBar, "NonPO:", nonPOCountBar);
@@ -556,7 +558,7 @@ sap.ui.define(
 			_updateStackedBar: function (elementPrefix, aging0to10, aging10to20, aging20plus) {
 				var that = this;
 				var total = aging0to10 + aging10to20 + aging20plus;
-				
+
 				console.log("Updating stacked bar for", elementPrefix, "- 0-10 days:", aging0to10, "10-20 days:", aging10to20, "20+ days:", aging20plus, "Total:", total);
 
 				if (total === 0) {
@@ -599,7 +601,7 @@ sap.ui.define(
 
 				// Update the segments - ALL cards have 3 segments for aging
 				var segments = stackedBar.querySelectorAll('.stackedBarSegment');
-				
+
 				if (segments.length >= 3) {
 					// Update 0-10 days segment (blue/fundSegment)
 					segments[0].style.width = percentage0to10 + '%';

@@ -1,12 +1,12 @@
 {
-  "_version": "1.20.0",
+  "_version": "1.2.1",
   "sap.app": {
     "id": "my.component.sample.cardContentControls",
     "type": "card",
     "title": "Sample of a Component Content with Form",
     "subTitle": "Sample of a Component Content with Form",
     "applicationVersion": {
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     "shortTitle": "A short title for this Card",
     "info": "Additional information about this Card",

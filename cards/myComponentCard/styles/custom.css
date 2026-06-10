@@ -506,3 +506,11 @@
   font-style: italic;
   color: #747474;
 }
+
+.inputProviderFeedbackIconWrapper {
+    padding-top: 20px;
+    background-color: #1a8a6e;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
