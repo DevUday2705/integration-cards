@@ -438,7 +438,7 @@ sap.ui.define(
 						elementPrefix = "inputProvider";
 						console.log("Role '" + role + "' matches INP prefix, mapping to 'inputProvider'");
 					} else {
-						console.warn("Unknown role:", role);
+						console.warn("Unknown role: ", role);
 						return;
 					}
 				}
